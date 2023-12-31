@@ -4,7 +4,17 @@ import { config } from './config';
 async function init(): Promise<void> {
 
   const bot = new Telegraf(config.token);
-  bot.command('start', (ctx) => {});
+  bot.command('start', (ctx) => {
+    ctx.reply(
+      'Wellcome to TG shop bot. Press the button below to start the application.',
+      Markup.keyboard([
+        Markup.button.webApp(
+          'Send a message',
+          config.webAppUrl
+        )
+      ])
+      );
+  });
   bot.launch();
 
 }

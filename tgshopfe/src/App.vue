@@ -9,24 +9,87 @@
 </template>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;700&family=REM:wght@400;700&display=swap');
+
+:root {
+  --main-padding: 16px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 14px;
+  padding: var(--main-padding);
+  font-family: "Inter", sans-serif;
+  background: var(--tg-theme-bg-color);
+  color: var(--tg-theme-text-color);
+
+}
+
+a {
+  color: var(--tg-theme-link-color);
+}
+
+button {
+  background: var(--tg-theme-button-color);
+  color: var(--tg-theme-button-text-color);
+}
+
+.mb {
+  margin-bottom: var();
+  font-size: .8rem;
+}
+
+.hint {
+  color: var(--tg-theme-hint-color);
+}
+
+hr {
+  background: var(--tg-theme-hint-color);
+  margin-bottom: var(--main-padding);
+}
+
+.form-control {
+  width: 100%;
+  height: 60px;
+  background: var(--tg-theme-secondary-bg-color);
+  color: var(--tg-theme-text-color);
+  resize: none;
+  font-family: inherit;
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.product {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.product-item {
+  overflow: hidden;
+  box-shadow: 2px 3px 6px rgba(0,0,0,.25);
+  border-radius: 10px;
+}
+
+.product-image {
+  display: flex;
+  justify-content: center;
+  background: var(--tg-theme-secondary-bg-color);
   text-align: center;
-  color: #2c3e50;
 }
 
-nav {
-  padding: 30px;
+.product-image img {
+  display: block;
+  padding: 10px;
 }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
+.product-info {
+  padding: var(--main-padding);
 }
 </style>

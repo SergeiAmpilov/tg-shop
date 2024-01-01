@@ -19,7 +19,7 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('../views/FeedbackView.vue'),
   },
   {
-    path: '/product',
+    path: '/product/:id',
     name: 'product',
     component: () => import('../views/ProductView.vue'),
   },

@@ -8,6 +8,8 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@types/telegram-web-app": "^6.9.3",
+    "telegram-webapps-types-new": "^1.0.5",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
     "vuex": "^4.0.0"
@@ -26,6 +28,7 @@
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-vue": "^8.0.3",
     "eslint-plugin-vuejs-accessibility": "^1.1.0",
+    "telegram-webapps-types": "^1.0.5",
     "typescript": "~4.5.5"
   }
 }

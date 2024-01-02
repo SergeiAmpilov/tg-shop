@@ -2,9 +2,20 @@
   <div>
     <h1>{{ title }}</h1>
     <p>{{ subtitle }}</p>
-    <ul>
-      <li v-for="product in products" :key="product.id">
-        <span>{{ product.title }}</span>
+    <ul class="product">
+      <li v-for="product in products" :key="product.id" class="product-item">
+        <div class="product-image">
+          <img
+            :src="product.image"
+            alt=""
+          >
+        </div>
+        <div class="product-info">
+          <h3>{{ product.title }}</h3>
+          <b>{{ product.price.toLocaleString() }}</b> &#8381;
+          <p class="hint">{{ product.text }}</p>
+          <router-link :to="'/product/' + product.id">Подробнее</router-link>
+        </div>
       </li>
     </ul>
   </div>

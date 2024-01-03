@@ -41,7 +41,7 @@ button {
 }
 
 .mb {
-  margin-bottom: var();
+  margin-bottom: var(--main-padding);
   font-size: .8rem;
 }
 

@@ -1,9 +1,6 @@
 <template>
   <div>
     <h1>Shop view</h1>
-    <p>
-      {{ b }}
-    </p>
     <hr>
     <product-list
       title="Список продуктов"
@@ -33,7 +30,6 @@ export default defineComponent({
   },
   data() {
     return {
-      b: 14,
       products: prodService.all,
     };
   },

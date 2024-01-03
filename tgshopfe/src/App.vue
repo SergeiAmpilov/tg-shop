@@ -93,3 +93,14 @@ hr {
   padding: var(--main-padding);
 }
 </style>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+import { TelegramServiceProvider } from '@/services/Telegram.Service';
+
+export default defineComponent({
+  mounted() {
+    TelegramServiceProvider.ready();
+  },
+});
+</script>

@@ -23,10 +23,9 @@ const prodService = new ProductsService();
 
 export default defineComponent({
   mounted() {
-    TelegramServiceProvider.MainButton.setText('Главная кнопка');
-    TelegramServiceProvider.MainButton.show();
-
-    console.log(prodService.byType);
+    // TelegramServiceProvider.MainButton.setText('Главная кнопка');
+    // TelegramServiceProvider.MainButton.show();
+    TelegramServiceProvider.BackButton.hide();
   },
   data() {
     return {

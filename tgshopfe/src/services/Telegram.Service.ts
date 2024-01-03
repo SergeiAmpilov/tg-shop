@@ -1,7 +1,9 @@
 interface TgButton {
   show: () => void;
   hide: () => void;
-  setText: (text: string) => void;
+  setText?: (text: string) => void;
+  onClick: (fn: () => void) => void;
+  offClick: (fn: () => void) => void;
 }
 
 export class TelegramService {
@@ -16,6 +18,14 @@ export class TelegramService {
 
   get MainButton(): TgButton {
     return this.tg.MainButton;
+  }
+
+  get BackButton(): TgButton {
+    return this.tg.BackButton;
+  }
+
+  ready(): void {
+    this.tg.ready();
   }
 }
 

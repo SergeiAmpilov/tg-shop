@@ -4,6 +4,8 @@ interface TgButton {
   setText?: (text: string) => void;
   onClick: (fn: () => void) => void;
   offClick: (fn: () => void) => void;
+  enable?: () => void;
+  disable?: () => void;
 }
 
 export class TelegramService {
@@ -22,6 +24,10 @@ export class TelegramService {
 
   get BackButton(): TgButton {
     return this.tg.BackButton;
+  }
+
+  sendData(obj: object): void {
+    this.tg.sendData(JSON.stringify(obj));
   }
 
   ready(): void {

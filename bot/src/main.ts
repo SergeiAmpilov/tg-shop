@@ -9,8 +9,8 @@ async function init(): Promise<void> {
       'Wellcome to TG shop bot. Press the button below to start the application.',
       Markup.keyboard([
         Markup.button.webApp(
-          'Send a message',
-          config.webAppUrl
+          'Send a feedback',
+          config.webAppUrl + 'feedback/'
         )
       ])
       );

@@ -54,6 +54,10 @@ hr {
   margin-bottom: var(--main-padding);
 }
 
+.form {
+
+}
+
 .form-control {
   width: 100%;
   height: 60px;
@@ -80,7 +84,8 @@ hr {
 .product-image {
   display: flex;
   justify-content: center;
-  background: var(--tg-theme-secondary-bg-color);
+  /* background: var(--tg-theme-secondary-bg-color); */
+  background: #fff;
   text-align: center;
 }
 
@@ -91,6 +96,10 @@ hr {
 
 .product-info {
   padding: var(--main-padding);
+}
+
+.centered {
+  text-align: center;
 }
 </style>
 

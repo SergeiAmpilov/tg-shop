@@ -49,9 +49,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style scoped>
-.centered {
-  text-align: center;
-}
-</style>

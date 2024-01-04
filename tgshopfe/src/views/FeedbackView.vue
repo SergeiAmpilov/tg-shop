@@ -1,7 +1,6 @@
 <template>
   <div>
     <h1>Feedback view</h1>
-    {{ feedback }}
     <form action="" class="centered form">
       <label for="feedback">
         Feedback:

@@ -10,6 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const telegraf_1 = require("telegraf");
+const filters_1 = require("telegraf/filters");
 const config_1 = require("./config");
 function init() {
     return __awaiter(this, void 0, void 0, function* () {
@@ -19,6 +20,12 @@ function init() {
                 telegraf_1.Markup.button.webApp('Send a feedback', config_1.config.webAppUrl + 'feedback/')
             ]));
         });
+        bot.on((0, filters_1.message)('web_app_data'), (ctx) => __awaiter(this, void 0, void 0, function* () {
+            var _a, _b;
+            let data;
+            data = (_a = ctx === null || ctx === void 0 ? void 0 : ctx.webAppData) === null || _a === void 0 ? void 0 : _a.data.json();
+            ctx.reply(`Your message was: ${(_b = data === null || data === void 0 ? void 0 : data.feedback) !== null && _b !== void 0 ? _b : 'empty'}`);
+        }));
         bot.launch();
     });
 }

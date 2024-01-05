@@ -1,11 +1,13 @@
 <template>
-  <nav>
+  <!-- <nav>
     <router-link to="/">Shop</router-link> |
     <router-link to="/cart">Cart</router-link> |
     <router-link to="/order">Order</router-link> |
     <router-link to="/product/123">Product 123</router-link>
-  </nav>
-  <router-view/>
+  </nav> -->
+  <div class="container">
+    <router-view/>
+  </div>
 </template>
 
 <style>
@@ -14,12 +16,25 @@
 
 :root {
   --main-padding: 16px;
+  /* define ast colors */
+  --color-ast-red: #A04476;
+  --color-ast-orange: #CE998D;
+  --color-ast-blue: #3D6791;
+  --color-ast-dark-blue: #1E355C;
+  /*  */
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+}
+.centered {
+  text-align: center;
 }
 
 body {
@@ -98,9 +113,6 @@ hr {
   padding: var(--main-padding);
 }
 
-.centered {
-  text-align: center;
-}
 </style>
 
 <script lang="ts">

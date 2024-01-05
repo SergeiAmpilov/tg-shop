@@ -1,9 +1,9 @@
 <template>
   <nav>
     <router-link to="/">Shop</router-link> |
-    <router-link to="/feedback">Feedback</router-link> |
-    <router-link to="/product">Product</router-link> |
-    <router-link to="/home">Home</router-link>
+    <router-link to="/cart">Cart</router-link> |
+    <router-link to="/order">Order</router-link> |
+    <router-link to="/product/123">Product 123</router-link>
   </nav>
   <router-view/>
 </template>

@@ -1,8 +1,32 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
-import ShopViewVue from '@/views/ShopView.vue';
-import HomeView from '../views/HomeView.vue';
+// import ShopViewVue from '@/views/ShopView.vue';
+// import HomeView from '../views/HomeView.vue';
+
+import ShopView from '@/views/vShopView.vue';
 
 const routes: Array<RouteRecordRaw> = [
+  {
+    path: '/',
+    name: 'shop',
+    component: ShopView,
+  },
+  {
+    path: '/cart',
+    name: 'cart',
+    component: () => import('@/views/vCartView.vue'),
+  },
+  {
+    path: '/order',
+    name: 'order',
+    component: () => import('@/views/vOrderView.vue'),
+  },
+  {
+    path: '/product/:id',
+    name: 'product',
+    component: () => import('@/views/vProductView.vue'),
+  },
+
+  /*
   {
     path: '/home',
     name: 'home',
@@ -23,6 +47,7 @@ const routes: Array<RouteRecordRaw> = [
     name: 'product',
     component: () => import('../views/ProductView.vue'),
   },
+  */
 ];
 
 const router = createRouter({

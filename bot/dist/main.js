@@ -17,7 +17,9 @@ function init() {
         const bot = new telegraf_1.Telegraf(config_1.config.token);
         bot.command('start', (ctx) => {
             ctx.reply('Wellcome to TG shop bot. Press the button below to start the application.', telegraf_1.Markup.keyboard([
-                telegraf_1.Markup.button.webApp('Send a feedback', config_1.config.webAppUrl + 'feedback/')
+                telegraf_1.Markup.button.webApp('Open shop', config_1.config.webAppUrl
+                // + 'feedback/'
+                )
             ]));
         });
         bot.on((0, filters_1.message)('web_app_data'), (ctx) => __awaiter(this, void 0, void 0, function* () {

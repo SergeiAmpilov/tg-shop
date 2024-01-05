@@ -1,8 +1,9 @@
 // eslint-disable-next-line no-shadow
 export enum EProductType {
+  all = 'all',
   vine = 'vine',
+  shamp = 'shamp',
   strong = 'strong',
-  shamp = 'shamp'
 }
 
 export const domain = 'https://b2c.ast-inter.ru';

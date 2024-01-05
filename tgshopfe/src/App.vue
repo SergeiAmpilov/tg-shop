@@ -30,6 +30,10 @@
   box-sizing: border-box;
 }
 
+[v-cloak] {
+  display: none;
+}
+
 .container {
   width: 100%;
 }
@@ -43,21 +47,26 @@ body {
   font-family: "Inter", sans-serif;
   background: var(--tg-theme-bg-color);
   color: var(--tg-theme-text-color);
-
 }
 
 a {
   color: var(--tg-theme-link-color);
 }
 
-button {
-  background: var(--tg-theme-button-color);
-  color: var(--tg-theme-button-text-color);
-}
-
 .mb {
   margin-bottom: var(--main-padding);
   font-size: .8rem;
+}
+
+.mt {
+  margin-top: var(--main-padding);
+  font-size: .8rem;
+}
+
+button {
+  background: var(--tg-theme-button-color);
+  color: var(--tg-theme-button-text-color);
+  border: 1px solid var(--tg-theme-button-text-color);
 }
 
 .hint {

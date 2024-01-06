@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@types/telegram-web-app": "^6.9.3",
+    "firebase": "^10.7.1",
     "telegram-webapps-types-new": "^1.0.5",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",

@@ -9,24 +9,35 @@
         <path fill-rule="evenodd" clip-rule="evenodd" d="M24.2023 25.302C28.3599 25.302 31.6648 21.8905 31.6648 17.8395C31.6648 13.6818 28.2533 10.377 24.2023 10.377C20.0446 10.377 16.7397 13.7884 16.7397 17.8395C16.7397 21.9972 20.1512 25.302 24.2023 25.302Z" fill="#CE998D"/>
         <path fill-rule="evenodd" clip-rule="evenodd" d="M15.8868 40.0149C20.0445 40.0149 23.3493 36.6034 23.3493 32.5524C23.3493 28.5013 19.9379 25.0898 15.8868 25.0898C11.8358 25.0898 8.42432 28.5013 8.42432 32.5524C8.42432 36.6034 11.7291 40.0149 15.8868 40.0149Z" fill="#A04476"/>
       </svg>
-      <p>@tgshop.ast-inter</p>
     </div>
     <filter-component></filter-component>
-    {{ $store.state.filter }}
+    <product-list
+      :products="products"
+    ></product-list>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 import vFilterComponentVue from '@/components/vFilterComponent.vue';
+import vProductListComponent from '@/components/vProductListComponent.vue';
+import { ProductsService } from '@/services/Products.service';
+
+const productService = new ProductsService();
 
 export default defineComponent({
   components: {
     'filter-component': vFilterComponentVue,
+    'product-list': vProductListComponent,
   },
   mounted() {
     // console.log('products in store');
     // console.log(this.$store.state.products);
+  },
+  data() {
+    return {
+      products: productService.all,
+    };
   },
 });
 

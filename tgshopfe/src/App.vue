@@ -67,6 +67,9 @@ button {
   background: var(--tg-theme-button-color);
   color: var(--tg-theme-button-text-color);
   border: 1px solid var(--tg-theme-button-text-color);
+
+  padding: 5px 10px;
+  border-radius: 2px;
 }
 
 .hint {
@@ -92,7 +95,18 @@ hr {
   padding: 8px;
   border-radius: 10px;
 }
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.col {
+  width: 50%;
+}
+.p1 {
+  padding: var(--main-padding);
+}
 
+/*
 .product {
   overflow: hidden;
   margin: 0;
@@ -108,7 +122,6 @@ hr {
 .product-image {
   display: flex;
   justify-content: center;
-  /* background: var(--tg-theme-secondary-bg-color); */
   background: #fff;
   text-align: center;
 }
@@ -121,7 +134,7 @@ hr {
 .product-info {
   padding: var(--main-padding);
 }
-
+*/
 </style>
 
 <script lang="ts">

@@ -1,5 +1,5 @@
 <template>
-  <div v-cloak class="mt">
+  <div v-cloak class="mt p1">
     <ul class="filter-list">
       <li class="filter-list__item">
         <button
@@ -71,8 +71,8 @@ export default defineComponent({
   margin-left: 0;
 }
 .filter-list__button {
-  padding: 5px 10px;
-  border-radius: 2px;
+  /* padding: 5px 10px;
+  border-radius: 2px; */
 }
 .filter-list__button-active {
   background: var(--color-ast-orange);

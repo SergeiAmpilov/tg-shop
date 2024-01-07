@@ -12,20 +12,28 @@ import { TelegramServiceProvider } from '@/services/Telegram.Service';
 export default defineComponent({
   mounted() {
     // order
-    const redicrectToOrder = function () {
-      this.$router.push({ name: 'order' });
-    };
-    const clickHandler = redicrectToOrder.bind(this);
+    const clickHandler = this.goToOrderClick.bind(this);
     TelegramServiceProvider.MainButton.onClick(clickHandler);
     TelegramServiceProvider.MainButton.setText(`Оформить заказ (${this.$store.getters.productsInCart})`);
 
     // go back
-    const goBackRedirect = function () {
-      this.$router.push({ name: 'shop' });
-    };
-    const goBackClickHandler = goBackRedirect.bind(this);
+    const goBackClickHandler = this.goBackClick.bind(this);
     TelegramServiceProvider.BackButton.onClick(goBackClickHandler);
-    TelegramServiceProvider.BackButton.enable();
+    TelegramServiceProvider.BackButton.show();
+  },
+  unmounted() {
+    // go back
+    const goBackClickHandler = this.goBackClick.bind(this);
+    TelegramServiceProvider.BackButton.offClick(goBackClickHandler);
+    TelegramServiceProvider.BackButton.hide();
+  },
+  methods: {
+    goBackClick() {
+      this.$router.push({ name: 'shop' });
+    },
+    goToOrderClick() {
+      this.$router.push({ name: 'order' });
+    },
   },
 });
 </script>

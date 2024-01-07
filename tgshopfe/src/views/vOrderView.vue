@@ -1,6 +1,18 @@
 <template>
   <div>
-    <h1>Order</h1>
+    <h1>Подтверждение заказа</h1>
+    <form action="" class="mt">
+      <label for="name">
+        <input
+          type="text"
+          class="form-control"
+          v-model="name"
+          id="name"
+          placeholder="Ваше имя:"
+        >
+      </label>
+
+    </form>
   </div>
 </template>
 
@@ -8,8 +20,15 @@
 import { defineComponent } from 'vue';
 import { TelegramServiceProvider } from '@/services/Telegram.Service';
 
-
 export default defineComponent({
+  data() {
+    return {
+      name: '',
+      email: '',
+      city: 0,
+      phone: '',
+    };
+  },
   mounted() {
     // go back
     const goBackClickHandler = this.redirectToCart.bind(this);
@@ -24,7 +43,9 @@ export default defineComponent({
     redirectToCart() {
       this.$router.push({ name: 'cart' });
     },
-    submitOrder() {},
+    submitOrder() {
+      console.log('submit');
+    },
   },
 });
 </script>

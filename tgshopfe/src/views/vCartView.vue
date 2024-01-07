@@ -94,9 +94,18 @@ export default defineComponent({
   methods: {
     goBackClick() {
       this.$router.push({ name: 'shop' });
+      //
+      TelegramServiceProvider.BackButton.hide();
+
+      const clickHandler = this.redicrectToCart.bind(this);
+      TelegramServiceProvider.MainButton.onClick(clickHandler);
+      this.$store.commit('recalcCart');
     },
     goToOrderClick() {
       this.$router.push({ name: 'order' });
+    },
+    redicrectToCart() {
+      this.$router.push({ name: 'cart' });
     },
   },
 });

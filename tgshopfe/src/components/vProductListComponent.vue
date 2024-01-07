@@ -69,7 +69,7 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
+<style>
 .product-card {
   position: relative;
   border-radius: 10px;

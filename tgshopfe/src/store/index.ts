@@ -46,6 +46,8 @@ export default createStore({
       if (totalCartCount > 0) {
         TelegramServiceProvider.MainButton.setText(`Посмотреть заказ (${totalCartCount})`);
         TelegramServiceProvider.MainButton.show();
+      } else {
+        TelegramServiceProvider.MainButton.hide();
       }
     },
   },

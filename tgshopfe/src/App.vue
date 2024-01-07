@@ -63,6 +63,11 @@ a {
   font-size: .8rem;
 }
 
+.ml {
+  margin-left: var(--main-padding);
+  font-size: .8rem;
+}
+
 button {
   background: var(--tg-theme-button-color);
   color: var(--tg-theme-button-text-color);
@@ -101,6 +106,9 @@ hr {
 }
 .col {
   width: 50%;
+}
+.col2 {
+  width: 25%;
 }
 .p1 {
   padding: var(--main-padding);
@@ -142,15 +150,18 @@ import { defineComponent } from 'vue';
 import { TelegramServiceProvider } from '@/services/Telegram.Service';
 
 export default defineComponent({
-  mounted() {
-    const redicrectToCart = function () {
+  methods: {
+    redicrectToCart() {
       this.$router.push({ name: 'cart' });
-    };
-    const clickHandler = redicrectToCart.bind(this);
+    },
+  },
+  mounted() {
+    const clickHandler = this.redicrectToCart.bind(this);
 
     TelegramServiceProvider.ready();
     TelegramServiceProvider.MainButton.onClick(clickHandler);
-    TelegramServiceProvider.MainButton.hide();
+    // TelegramServiceProvider.MainButton.hide();
+    this.$store.commit('recalcCart');
   },
 });
 </script>

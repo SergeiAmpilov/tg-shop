@@ -13,6 +13,15 @@ export default createStore({
     cart: {},
   },
   getters: {
+    productsInCart(state) {
+      let totalCartCount = 0;
+      Object.keys(state.cart).forEach((productId) => {
+        if (state.cart[productId] > 0) {
+          totalCartCount += state.cart[productId];
+        }
+      });
+      return totalCartCount;
+    },
   },
   mutations: {
     setFilter(state, payload) {
@@ -33,16 +42,9 @@ export default createStore({
       }
     },
     recalcCart(state) {
-      let totalCartCount = 0;
-      Object.keys(state.cart).forEach((productId) => {
-        if (state.cart[productId] > 0) {
-          totalCartCount += state.cart[productId];
-        }
-      });
-
-      // если есть хоть что-то в корзине, то нужно показать main button
+      const totalCartCount = this.getters.productsInCart;
       if (totalCartCount > 0) {
-        TelegramServiceProvider.MainButton.setText(`Оформить заказ (${totalCartCount})`);
+        TelegramServiceProvider.MainButton.setText(`Посмотреть заказ (${totalCartCount})`);
         TelegramServiceProvider.MainButton.show();
       }
     },

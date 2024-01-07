@@ -1,5 +1,6 @@
 import { createStore } from 'vuex';
 import { EProductType, ProductsService } from '@/services/Products.service';
+import { TelegramServiceProvider } from '@/services/Telegram.Service';
 
 const productService = new ProductsService();
 
@@ -32,17 +33,20 @@ export default createStore({
       }
     },
     recalcCart(state) {
-      let hasAnyProduct = false;
+      let totalCartCount = 0;
 
       Object.keys(state.cart).forEach((productId) => {
         if (state.cart[productId] > 0) {
-          hasAnyProduct = true;
+          totalCartCount += state.cart[productId];
         }
       });
 
       // если есть хоть что-то в корзине, то нужно показать main button
-
-
+      if (totalCartCount > 0) {
+        TelegramServiceProvider.MainButton.setText(`Оформить заказ (${totalCartCount})`);
+        TelegramServiceProvider.MainButton.onClick(() => this.$router.push('cart'));
+        TelegramServiceProvider.MainButton.show();
+      }
     },
   },
   actions: {

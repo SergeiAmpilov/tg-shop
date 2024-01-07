@@ -144,6 +144,7 @@ import { TelegramServiceProvider } from '@/services/Telegram.Service';
 export default defineComponent({
   mounted() {
     TelegramServiceProvider.ready();
+    TelegramServiceProvider.MainButton.hide();
   },
 });
 </script>

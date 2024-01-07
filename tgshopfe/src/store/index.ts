@@ -23,11 +23,26 @@ export default createStore({
       } else {
         state.cart[payload] = 1;
       }
+      this.commit('recalcCart');
     },
     subtractFromCart(state, payload) {
       if (state.cart[payload] && state.cart[payload] > 0) {
         state.cart[payload] -= 1;
+        this.commit('recalcCart');
       }
+    },
+    recalcCart(state) {
+      let hasAnyProduct = false;
+
+      Object.keys(state.cart).forEach((productId) => {
+        if (state.cart[productId] > 0) {
+          hasAnyProduct = true;
+        }
+      });
+
+      // если есть хоть что-то в корзине, то нужно показать main button
+
+
     },
   },
   actions: {

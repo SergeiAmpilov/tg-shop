@@ -34,7 +34,6 @@ export default createStore({
     },
     recalcCart(state) {
       let totalCartCount = 0;
-
       Object.keys(state.cart).forEach((productId) => {
         if (state.cart[productId] > 0) {
           totalCartCount += state.cart[productId];
@@ -44,7 +43,6 @@ export default createStore({
       // если есть хоть что-то в корзине, то нужно показать main button
       if (totalCartCount > 0) {
         TelegramServiceProvider.MainButton.setText(`Оформить заказ (${totalCartCount})`);
-        TelegramServiceProvider.MainButton.onClick(() => this.$router.push('cart'));
         TelegramServiceProvider.MainButton.show();
       }
     },

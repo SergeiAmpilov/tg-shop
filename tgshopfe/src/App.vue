@@ -143,7 +143,13 @@ import { TelegramServiceProvider } from '@/services/Telegram.Service';
 
 export default defineComponent({
   mounted() {
+    const redicrectToCart = function () {
+      this.$router.push({ name: 'cart' });
+    };
+    const clickHandler = redicrectToCart.bind(this);
+
     TelegramServiceProvider.ready();
+    TelegramServiceProvider.MainButton.onClick(clickHandler);
     TelegramServiceProvider.MainButton.hide();
   },
 });

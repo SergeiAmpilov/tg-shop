@@ -58,7 +58,7 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
+<style>
 .filter-list {
   list-style: none;
   padding: 0;

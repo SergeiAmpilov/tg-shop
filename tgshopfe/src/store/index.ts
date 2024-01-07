@@ -24,6 +24,11 @@ export default createStore({
         state.cart[payload] = 1;
       }
     },
+    subtractFromCart(state, payload) {
+      if (state.cart[payload] && state.cart[payload] > 0) {
+        state.cart[payload] -= 1;
+      }
+    },
   },
   actions: {
   },

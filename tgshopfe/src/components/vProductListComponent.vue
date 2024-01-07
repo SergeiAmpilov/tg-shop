@@ -23,7 +23,18 @@
             :alt="product.title"
           >
           <div class="centered mt">
+            <div v-if="product.id in $store.state.cart && $store.state.cart[product.id] > 0">
+              <button
+                class="filter-list__item filter-list__button-active"
+                @click="subtractFromCart(product.id)"
+                >-</button>
+              <button
+                class="filter-list__item"
+                @click="addToCart(product.id)"
+              >+</button>
+            </div>
             <button
+              v-else
               class="add-button"
               @click="addToCart(product.id)"
             >
@@ -50,6 +61,9 @@ export default defineComponent({
   methods: {
     addToCart(id) {
       this.$store.commit('addToCart', id);
+    },
+    subtractFromCart(id) {
+      this.$store.commit('subtractFromCart', id);
     },
   },
 });

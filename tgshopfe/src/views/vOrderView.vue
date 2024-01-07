@@ -2,6 +2,12 @@
   <div>
     <h1>Подтверждение заказа</h1>
     <form action="" class="mt">
+      <select name="city" id="city" v-model="city">
+        <option value="0">Выберите город</option>
+        <option value="msk">Moscow</option>
+        <option value="sch">Sochi</option>
+        <option value="spb">Saint-Petersburg</option>
+      </select>
       <label for="name">
         <input
           type="text"
@@ -11,6 +17,25 @@
           placeholder="Ваше имя:"
         >
       </label>
+      <label for="email">
+        <input
+          type="text"
+          class="form-control"
+          v-model="email"
+          id="email"
+          placeholder="Email:"
+        >
+      </label>
+      <label for="phone">
+        <input
+          type="text"
+          class="form-control"
+          v-model="phone"
+          id="phone"
+          placeholder="Email:"
+        >
+      </label>
+
 
     </form>
   </div>

@@ -50,9 +50,11 @@ import { EProductType } from '@/services/Products.service';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
+  emits: ['applyfilter'],
   methods: {
     filterClick(filtValue: string) {
       this.$store.commit('setFilter', EProductType[filtValue]);
+      this.$emit('applyfilter', filtValue);
     },
   },
 });

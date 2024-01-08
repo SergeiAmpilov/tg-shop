@@ -7,13 +7,13 @@
         class="col p1"
       >
         <div class="product-card centered">
-          <a :href="'/product/' + product.id.toString()">
-            <h3 class="centered product-title">
-              {{ product.title.length >= 30
-                ? product.title.substring(0, 27) + '...'
-                : product.title }}
-            </h3>
-          </a>
+          <h3 class="centered product-title">
+            {{ product.title.length >= 30
+              ? product.title.substring(0, 27) + '...'
+              : product.title }}
+          </h3>
+          <!-- <a :href="'/product/' + product.id.toString()">
+          </a> -->
           <div class="centered mt">
             <b>{{ product.price.toLocaleString() }}</b> &#8381;
           </div>

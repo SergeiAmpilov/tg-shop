@@ -10,27 +10,29 @@
     <div
       v-for="product in cartList"
       :key="product.id"
-      class="row mt"
+      class="mt"
     >
-      <div class="col2">
-        <img
-          :src="product.image"
-          :alt="product.title"
-          class="product-cart__img"
-        >
-      </div>
-      <div class="col">
-        <h4>{{ product.title }}</h4>
-        <p class="mt">
-          <span>
-            {{ product.price }} &#8381;
-          </span>
-          <span class="ml">x {{ product.count }}</span>
-        </p>
-      </div>
-      <div class="col2">
-        {{ (product.count * product.price).toLocaleString()  }}
-        &#8381;
+      <div v-if="product.count > 0" class="row">
+        <div class="col2">
+          <img
+            :src="product.image"
+            :alt="product.title"
+            class="product-cart__img"
+          >
+        </div>
+        <div class="col">
+          <h4>{{ product.title }}</h4>
+          <p class="mt">
+            <span>
+              {{ product.price }} &#8381;
+            </span>
+            <span class="ml">x {{ product.count }}</span>
+          </p>
+        </div>
+        <div class="col2">
+          {{ (product.count * product.price).toLocaleString()  }}
+          &#8381;
+        </div>
       </div>
     </div>
     <hr class="mt">

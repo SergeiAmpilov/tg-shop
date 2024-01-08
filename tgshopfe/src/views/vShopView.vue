@@ -10,7 +10,9 @@
         <path fill-rule="evenodd" clip-rule="evenodd" d="M15.8868 40.0149C20.0445 40.0149 23.3493 36.6034 23.3493 32.5524C23.3493 28.5013 19.9379 25.0898 15.8868 25.0898C11.8358 25.0898 8.42432 28.5013 8.42432 32.5524C8.42432 36.6034 11.7291 40.0149 15.8868 40.0149Z" fill="#A04476"/>
       </svg>
     </div>
-    <filter-component></filter-component>
+    <filter-component
+      @applyfilter="applyfilter"
+    ></filter-component>
     <product-list
       :products="products"
     ></product-list>
@@ -21,7 +23,7 @@
 import { defineComponent } from 'vue';
 import vFilterComponentVue from '@/components/vFilterComponent.vue';
 import vProductListComponent from '@/components/vProductListComponent.vue';
-import { ProductsService } from '@/services/Products.service';
+import { EProductType, IProduct, ProductsService } from '@/services/Products.service';
 
 const productService = new ProductsService();
 
@@ -30,9 +32,21 @@ export default defineComponent({
     'filter-component': vFilterComponentVue,
     'product-list': vProductListComponent,
   },
+  methods: {
+    applyfilter() {
+      this.products = this.getProductListByFilter();
+    },
+    getProductListByFilter() {
+      if (this.$store.state.filter.type === EProductType.all) {
+        return productService.all;
+      }
+
+      // eslint-disable-next-line max-len
+      return productService.all.filter((product: IProduct) => product.type === this.$store.state.filter.type);
+    },
+  },
   mounted() {
-    // console.log('products in store');
-    // console.log(this.$store.state.products);
+    this.products = this.getProductListByFilter();
   },
   data() {
     return {

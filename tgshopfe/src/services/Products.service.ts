@@ -119,4 +119,21 @@ export class ProductsService {
   get all() {
     return this.products;
   }
+
+  // eslint-disable-next-line class-methods-use-this
+  getProductTypeText(type: EProductType) {
+    if (type === EProductType.vine) {
+      return 'Вино';
+    }
+
+    if (type === EProductType.shamp) {
+      return 'Игристое / шампанское';
+    }
+
+    if (type === EProductType.strong) {
+      return 'Крепкий алкоголь';
+    }
+
+    return 'Произвольный тип';
+  }
 }

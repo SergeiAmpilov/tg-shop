@@ -23,10 +23,11 @@ function init() {
             ]));
         });
         bot.on((0, filters_1.message)('web_app_data'), (ctx) => __awaiter(this, void 0, void 0, function* () {
-            var _a, _b;
+            var _a;
             let data;
             data = (_a = ctx === null || ctx === void 0 ? void 0 : ctx.webAppData) === null || _a === void 0 ? void 0 : _a.data.json();
-            ctx.reply(`Your message was: ${(_b = data === null || data === void 0 ? void 0 : data.feedback) !== null && _b !== void 0 ? _b : 'empty'}`);
+            // ctx.reply(`Your order was: ${data?.feedback ?? 'empty'}`);    
+            ctx.reply(`Your order was: ` + JSON.stringify(data));
         }));
         bot.launch();
     });

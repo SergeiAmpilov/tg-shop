@@ -22,9 +22,9 @@ async function init(): Promise<void> {
   bot.on(message('web_app_data'), async (ctx) => {
     let data: any;
     data = ctx?.webAppData?.data.json();
-    
-    ctx.reply(`Your message was: ${data?.feedback ?? 'empty'}`);    
-    
+    // ctx.reply(`Your order was: ${data?.feedback ?? 'empty'}`);    
+        
+    ctx.reply(`Your order was: ` + JSON.stringify(data));    
   });
   
   

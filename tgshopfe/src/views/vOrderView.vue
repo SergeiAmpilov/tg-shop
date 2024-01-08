@@ -1,42 +1,49 @@
+<!-- eslint-disable vuejs-accessibility/form-control-has-label -->
 <template>
   <div>
     <h1>Подтверждение заказа</h1>
     <form action="" class="mt">
-      <select name="city" id="city" v-model="city">
-        <option value="0">Выберите город</option>
-        <option value="msk">Moscow</option>
-        <option value="sch">Sochi</option>
-        <option value="spb">Saint-Petersburg</option>
-      </select>
-      <label for="name">
-        <input
-          type="text"
-          class="form-control"
-          v-model="name"
-          id="name"
-          placeholder="Ваше имя:"
-        >
-      </label>
-      <label for="email">
-        <input
-          type="text"
-          class="form-control"
-          v-model="email"
-          id="email"
-          placeholder="Email:"
-        >
-      </label>
-      <label for="phone">
-        <input
-          type="text"
-          class="form-control"
-          v-model="phone"
-          id="phone"
-          placeholder="Email:"
-        >
-      </label>
-
-
+      <div class="mt">
+        <select name="city" id="city" v-model="city" >
+          <option value="0">Выберите город</option>
+          <option value="msk">Moscow</option>
+          <option value="sch">Sochi</option>
+          <option value="spb">Saint-Petersburg</option>
+        </select>
+      </div>
+      <div class="mt">
+        <label for="name">
+          <input
+            type="text"
+            class="form-control"
+            v-model="name"
+            id="name"
+            placeholder="Ваше имя:"
+          >
+        </label>
+      </div>
+      <div class="mt">
+        <label for="email" class="mt">
+          <input
+            type="text"
+            class="form-control"
+            v-model="email"
+            id="email"
+            placeholder="Email:"
+          >
+        </label>
+      </div>
+      <div class="mt">
+        <label for="phone" class="mt">
+          <input
+            type="text"
+            class="form-control"
+            v-model="phone"
+            id="phone"
+            placeholder="Phone:"
+          >
+        </label>
+      </div>
     </form>
   </div>
 </template>
@@ -62,6 +69,7 @@ export default defineComponent({
 
     const clickSubmitHandler = this.submitOrder.bind(this);
     TelegramServiceProvider.MainButton.setText('Отправить заказ');
+    TelegramServiceProvider.MainButton.show();
     TelegramServiceProvider.MainButton.onClick(clickSubmitHandler);
   },
   methods: {
@@ -69,7 +77,13 @@ export default defineComponent({
       this.$router.push({ name: 'cart' });
     },
     submitOrder() {
-      console.log('submit');
+      TelegramServiceProvider.sendData({
+        name: this.name,
+        email: this.email,
+        phone: this.phone,
+        city: this.city,
+        cart: { ...this.$store.state.cart },
+      });
     },
   },
 });
